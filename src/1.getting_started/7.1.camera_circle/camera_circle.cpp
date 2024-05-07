@@ -57,7 +57,13 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader ourShader("7.1.camera.vs", "7.1.camera.fs");
+    std::string texture_vs = FileSystem::getPath("src/1.getting_started/7.1.camera_circle/7.1.camera.vs");
+    std::string texture_fs = FileSystem::getPath("src/1.getting_started/7.1.camera_circle/7.1.camera.fs");
+
+    std::cout << "texture_vs = " << texture_vs << std::endl;
+    std::cout << "texture_fs = " << texture_fs << std::endl;
+
+    Shader ourShader(texture_vs.c_str(), texture_fs.c_str());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

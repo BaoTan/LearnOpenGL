@@ -49,7 +49,13 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader ourShader("4.1.texture.vs", "4.1.texture.fs"); 
+    std::string texture_vs = FileSystem::getPath("src/1.getting_started/4.1.textures/4.1.texture.vs");
+    std::string texture_fs = FileSystem::getPath("src/1.getting_started/4.1.textures/4.1.texture.fs");
+
+    std::cout << "texture_vs = " << texture_vs << std::endl;
+    std::cout << "texture_fs = " << texture_fs << std::endl;
+
+    Shader ourShader(texture_vs.c_str(), texture_fs.c_str());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -102,7 +108,9 @@ int main()
     // load image, create texture and generate mipmaps
     int width, height, nrChannels;
     // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
-    unsigned char *data = stbi_load(FileSystem::getPath("resources/textures/container.jpg").c_str(), &width, &height, &nrChannels, 0);
+    std::string file_name = FileSystem::getPath("resources/textures/container.jpg");
+    std::cout << "file_name = " << file_name << std::endl;
+    unsigned char *data = stbi_load(file_name.c_str(), &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);

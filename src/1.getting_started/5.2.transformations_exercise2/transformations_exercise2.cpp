@@ -53,7 +53,15 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader ourShader("5.2.transform.vs", "5.2.transform.fs");
+    std::string texture_vs =
+        FileSystem::getPath("src/1.getting_started/5.2.transformations_exercise2/5.2.transform.vs");
+    std::string texture_fs =
+        FileSystem::getPath("src/1.getting_started/5.2.transformations_exercise2/5.2.transform.fs");
+
+    std::cout << "texture_vs = " << texture_vs << std::endl;
+    std::cout << "texture_fs = " << texture_fs << std::endl;
+
+    Shader ourShader(texture_vs.c_str(), texture_fs.c_str());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

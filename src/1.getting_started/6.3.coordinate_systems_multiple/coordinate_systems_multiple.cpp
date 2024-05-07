@@ -57,7 +57,15 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader ourShader("6.3.coordinate_systems.vs", "6.3.coordinate_systems.fs");
+    std::string texture_vs =
+        FileSystem::getPath("src/1.getting_started/6.3.coordinate_systems_multiple/6.3.coordinate_systems.vs");
+    std::string texture_fs =
+        FileSystem::getPath("src/1.getting_started/6.3.coordinate_systems_multiple/6.3.coordinate_systems.fs");
+
+    std::cout << "texture_vs = " << texture_vs << std::endl;
+    std::cout << "texture_fs = " << texture_fs << std::endl;
+
+    Shader ourShader(texture_vs.c_str(), texture_fs.c_str());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
