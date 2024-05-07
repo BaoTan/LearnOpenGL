@@ -77,8 +77,15 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader lightingShader("2.2.basic_lighting.vs", "2.2.basic_lighting.fs");
-    Shader lightCubeShader("2.2.light_cube.vs", "2.2.light_cube.fs");
+    std::string texture_vs = FileSystem::getPath("src/2.lighting/2.2.basic_lighting_specular/2.2.basic_lighting.vs");
+    std::string texture_fs = FileSystem::getPath("src/2.lighting/2.2.basic_lighting_specular/2.2.basic_lighting.fs");
+
+    Shader lightingShader(texture_vs.c_str(), texture_fs.c_str());
+
+    std::string lightCube_vs = FileSystem::getPath("src/2.lighting/2.2.basic_lighting_specular/2.2.light_cube.vs");
+    std::string lightCube_fs = FileSystem::getPath("src/2.lighting/2.2.basic_lighting_specular/2.2.light_cube.fs");
+    Shader lightCubeShader(lightCube_vs.c_str(), lightCube_fs.c_str());
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

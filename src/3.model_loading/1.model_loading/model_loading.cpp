@@ -78,7 +78,11 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader ourShader("1.model_loading.vs", "1.model_loading.fs");
+    std::string texture_vs = FileSystem::getPath("src/3.model_loading/1.model_loading/1.model_loading.vs");
+    std::string texture_fs = FileSystem::getPath("src/3.model_loading/1.model_loading/1.model_loading.fs");
+
+    Shader ourShader(texture_vs.c_str(), texture_fs.c_str());
+
 
     // load models
     // -----------
