@@ -78,7 +78,14 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("1.2.depth_testing.vs", "1.2.depth_testing.fs");
+    std::string texture_vs = FileSystem::getPath("src/4.advanced_opengl/1.2.depth_testing_view/1.2.depth_testing.vs");
+    std::string texture_fs = FileSystem::getPath("src/4.advanced_opengl/1.2.depth_testing_view/1.2.depth_testing.fs");
+
+    std::cout << "texture_vs = " << texture_vs << std::endl;
+    std::cout << "texture_fs = " << texture_fs << std::endl;
+
+    Shader shader(texture_vs.c_str(), texture_fs.c_str());
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

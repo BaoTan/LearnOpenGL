@@ -74,11 +74,19 @@ int main()
     // configure global opengl state
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_ALWAYS); // always pass the depth test (same effect as glDisable(GL_DEPTH_TEST))
+    glDepthFunc(GL_LEQUAL); 
+    // glDepthFunc(GL_ALWAYS); // always pass the depth test (same effect as glDisable(GL_DEPTH_TEST))
 
     // build and compile shaders
     // -------------------------
-    Shader shader("1.1.depth_testing.vs", "1.1.depth_testing.fs");
+    std::string texture_vs = FileSystem::getPath("src/4.advanced_opengl/1.1.depth_testing/1.1.depth_testing.vs");
+    std::string texture_fs = FileSystem::getPath("src/4.advanced_opengl/1.1.depth_testing/1.1.depth_testing.fs");
+
+    std::cout << "texture_vs = " << texture_vs << std::endl;
+    std::cout << "texture_fs = " << texture_fs << std::endl;
+
+    Shader shader(texture_vs.c_str(), texture_fs.c_str());
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
