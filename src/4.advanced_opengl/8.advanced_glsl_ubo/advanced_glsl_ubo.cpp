@@ -74,11 +74,17 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shaderRed("8.advanced_glsl.vs", "8.red.fs");
-    Shader shaderGreen("8.advanced_glsl.vs", "8.green.fs");
-    Shader shaderBlue("8.advanced_glsl.vs", "8.blue.fs");
-    Shader shaderYellow("8.advanced_glsl.vs", "8.yellow.fs");
-    
+    std::string glsl_vs = FileSystem::getPath("src/4.advanced_opengl/8.advanced_glsl_ubo/8.advanced_glsl.vs");
+    std::string red_fs = FileSystem::getPath("src/4.advanced_opengl/8.advanced_glsl_ubo/8.red.fs");
+    std::string green_fs = FileSystem::getPath("src/4.advanced_opengl/8.advanced_glsl_ubo/8.green.fs");
+    std::string blue_fs = FileSystem::getPath("src/4.advanced_opengl/8.advanced_glsl_ubo/8.blue.fs");
+    std::string yellow_fs = FileSystem::getPath("src/4.advanced_opengl/8.advanced_glsl_ubo/8.yellow.fs");
+
+    Shader shaderRed(glsl_vs.c_str(), red_fs.c_str());
+    Shader shaderGreen(glsl_vs.c_str(), green_fs.c_str());
+    Shader shaderBlue(glsl_vs.c_str(), blue_fs.c_str());
+    Shader shaderYellow(glsl_vs.c_str(), yellow_fs.c_str());
+
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float cubeVertices[] = {

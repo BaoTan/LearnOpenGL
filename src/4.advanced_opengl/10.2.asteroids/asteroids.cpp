@@ -76,7 +76,10 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("10.2.instancing.vs", "10.2.instancing.fs");
+    std::string framebuffers_vs = FileSystem::getPath("src/4.advanced_opengl/10.2.asteroids/10.2.instancing.vs");
+    std::string framebuffers_fs = FileSystem::getPath("src/4.advanced_opengl/10.2.asteroids/10.2.instancing.fs");
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
 
     // load models
     // -----------

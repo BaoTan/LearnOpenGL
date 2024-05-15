@@ -76,8 +76,20 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("9.3.default.vs", "9.3.default.fs");
-    Shader normalShader("9.3.normal_visualization.vs", "9.3.normal_visualization.fs", "9.3.normal_visualization.gs");
+    std::string normal_vs =
+        FileSystem::getPath("src/4.advanced_opengl/9.3.geometry_shader_normals/9.3.normal_visualization.vs");
+    std::string normal_fs =
+        FileSystem::getPath("src/4.advanced_opengl/9.3.geometry_shader_normals/9.3.normal_visualization.fs");
+    std::string normal_gs =
+        FileSystem::getPath("src/4.advanced_opengl/9.3.geometry_shader_normals/9.3.normal_visualization.gs");
+
+    Shader normalShader(normal_vs.c_str(), normal_fs.c_str(), normal_gs.c_str());
+
+    std::string framebuffers_vs =
+        FileSystem::getPath("src/4.advanced_opengl/9.3.geometry_shader_normals/9.3.default.vs");
+    std::string framebuffers_fs =
+        FileSystem::getPath("src/4.advanced_opengl/9.3.geometry_shader_normals/9.3.default.fs");
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
 
     // load models
     // -----------

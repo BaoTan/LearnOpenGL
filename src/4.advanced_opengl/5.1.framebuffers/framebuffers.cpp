@@ -77,8 +77,18 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("5.1.framebuffers.vs", "5.1.framebuffers.fs");
-    Shader screenShader("5.1.framebuffers_screen.vs", "5.1.framebuffers_screen.fs");
+    std::string framebuffers_vs = FileSystem::getPath("src/4.advanced_opengl/5.1.framebuffers/5.1.framebuffers.vs");
+    std::string framebuffers_fs = FileSystem::getPath("src/4.advanced_opengl/5.1.framebuffers/5.1.framebuffers.fs");
+    std::cout << framebuffers_vs << std::endl;
+    std::cout << framebuffers_fs << std::endl;
+
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
+
+    std::string screen_vs = FileSystem::getPath("src/4.advanced_opengl/5.1.framebuffers/5.1.framebuffers_screen.vs");
+    std::string screen_fs = FileSystem::getPath("src/4.advanced_opengl/5.1.framebuffers/5.1.framebuffers_screen.fs");
+    Shader screenShader(screen_vs.c_str(), screen_fs.c_str());
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

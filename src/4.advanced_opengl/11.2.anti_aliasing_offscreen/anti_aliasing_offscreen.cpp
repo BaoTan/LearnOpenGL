@@ -76,8 +76,17 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("11.2.anti_aliasing.vs", "11.2.anti_aliasing.fs");
-    Shader screenShader("11.2.aa_post.vs", "11.2.aa_post.fs");
+    std::string framebuffers_vs =
+        FileSystem::getPath("src/4.advanced_opengl/11.2.anti_aliasing_offscreen/11.2.anti_aliasing.vs");
+    std::string framebuffers_fs =
+        FileSystem::getPath("src/4.advanced_opengl/11.2.anti_aliasing_offscreen/11.2.anti_aliasing.fs");
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
+    std::string planet_vs = FileSystem::getPath("src/4.advanced_opengl/11.2.anti_aliasing_offscreen/11.2.aa_post.vs");
+    std::string planet_fs = FileSystem::getPath("src/4.advanced_opengl/11.2.anti_aliasing_offscreen/11.2.aa_post.fs");
+    Shader screenShader(planet_vs.c_str(), planet_fs.c_str());
+
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

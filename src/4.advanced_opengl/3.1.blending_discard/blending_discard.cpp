@@ -77,7 +77,12 @@ int main()
 
      // build and compile shaders
     // -------------------------
-    Shader shader("3.1.blending.vs", "3.1.blending.fs");
+    std::string framebuffers_vs = FileSystem::getPath("src/4.advanced_opengl/3.1.blending_discard/3.1.blending.vs");
+    std::string framebuffers_fs = FileSystem::getPath("src/4.advanced_opengl/3.1.blending_discard/3.1.blending.fs");
+    std::cout << framebuffers_vs << std::endl;
+    std::cout << framebuffers_fs << std::endl;
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

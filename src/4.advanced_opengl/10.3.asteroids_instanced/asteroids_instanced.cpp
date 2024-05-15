@@ -76,8 +76,17 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader asteroidShader("10.3.asteroids.vs", "10.3.asteroids.fs");
-    Shader planetShader("10.3.planet.vs", "10.3.planet.fs");
+    std::string framebuffers_vs =
+        FileSystem::getPath("src/4.advanced_opengl/10.3.asteroids_instanced/10.3.asteroids.vs");
+    std::string framebuffers_fs =
+        FileSystem::getPath("src/4.advanced_opengl/10.3.asteroids_instanced/10.3.asteroids.fs");
+    Shader asteroidShader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
+    std::string planet_vs = FileSystem::getPath("src/4.advanced_opengl/10.3.asteroids_instanced/10.3.planet.vs");
+    std::string planet_fs = FileSystem::getPath("src/4.advanced_opengl/10.3.asteroids_instanced/10.3.planet.fs");
+    Shader planetShader(planet_vs.c_str(), planet_fs.c_str());
+
+
 
     // load models
     // -----------

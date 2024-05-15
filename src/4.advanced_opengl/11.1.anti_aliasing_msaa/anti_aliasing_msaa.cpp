@@ -77,7 +77,11 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("11.1.anti_aliasing.vs", "11.1.anti_aliasing.fs");
+    std::string framebuffers_vs =
+        FileSystem::getPath("src/4.advanced_opengl/11.1.anti_aliasing_msaa/11.1.anti_aliasing.vs");
+    std::string framebuffers_fs =
+        FileSystem::getPath("src/4.advanced_opengl/11.1.anti_aliasing_msaa/11.1.anti_aliasing.fs");
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

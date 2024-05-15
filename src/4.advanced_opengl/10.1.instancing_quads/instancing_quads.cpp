@@ -50,7 +50,10 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("10.1.instancing.vs", "10.1.instancing.fs");
+    std::string framebuffers_vs = FileSystem::getPath("src/4.advanced_opengl/10.1.instancing_quads/10.1.instancing.vs");
+    std::string framebuffers_fs = FileSystem::getPath("src/4.advanced_opengl/10.1.instancing_quads/10.1.instancing.fs");
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
 
     // generate a list of 100 quad locations/translation-vectors
     // ---------------------------------------------------------

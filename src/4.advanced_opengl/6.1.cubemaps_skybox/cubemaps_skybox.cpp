@@ -78,8 +78,15 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("6.1.cubemaps.vs", "6.1.cubemaps.fs");
-    Shader skyboxShader("6.1.skybox.vs", "6.1.skybox.fs");
+    std::string framebuffers_vs = FileSystem::getPath("src/4.advanced_opengl/6.1.cubemaps_skybox/6.1.cubemaps.vs");
+    std::string framebuffers_fs = FileSystem::getPath("src/4.advanced_opengl/6.1.cubemaps_skybox/6.1.cubemaps.fs");
+    Shader shader(framebuffers_vs.c_str(), framebuffers_fs.c_str());
+
+    std::string skybox_vs = FileSystem::getPath("src/4.advanced_opengl/6.1.cubemaps_skybox/6.1.skybox.vs");
+    std::string skybox_fs = FileSystem::getPath("src/4.advanced_opengl/6.1.cubemaps_skybox/6.1.skybox.fs");
+    Shader skyboxShader(skybox_vs.c_str(), skybox_fs.c_str());
+
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------

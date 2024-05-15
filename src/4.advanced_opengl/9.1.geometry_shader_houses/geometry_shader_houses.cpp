@@ -50,7 +50,14 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader shader("9.1.geometry_shader.vs", "9.1.geometry_shader.fs", "9.1.geometry_shader.gs");
+    std::string geometry_vs =
+        FileSystem::getPath("src/4.advanced_opengl/9.1.geometry_shader_houses/9.1.geometry_shader.vs");
+    std::string geometry_fs =
+        FileSystem::getPath("src/4.advanced_opengl/9.1.geometry_shader_houses/9.1.geometry_shader.fs");
+    std::string geometry_gs =
+        FileSystem::getPath("src/4.advanced_opengl/9.1.geometry_shader_houses/9.1.geometry_shader.gs");
+
+    Shader shader(geometry_vs.c_str(), geometry_fs.c_str(), geometry_gs.c_str());
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
