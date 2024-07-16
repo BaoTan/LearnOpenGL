@@ -251,7 +251,8 @@ int main()
         // would, but with the view camera reversed.
         // bind to framebuffer and draw scene as we normally would to color texture 
         // ------------------------------------------------------------------------
-        glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, framebuffer); // 画在自己创建的帧缓存中
+
         glEnable(GL_DEPTH_TEST); // enable depth testing (is disabled for rendering screen-space quad)
 
         // make sure we clear the framebuffer's content
@@ -288,7 +289,7 @@ int main()
 
         // second render pass: draw as normal
         // ----------------------------------
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glBindFramebuffer(GL_FRAMEBUFFER, 0); // 画在默认的上屏帧缓存中
 
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -315,7 +316,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 6);
         glBindVertexArray(0);
 
-        // now draw the mirror quad with screen texture
+        // now draw the mirror quad with screen texture 通过自己的帧缓存，画镜子的效果
         // --------------------------------------------
         glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
 
