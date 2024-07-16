@@ -60,6 +60,7 @@ private:
         }
         // retrieve the directory path of the filepath
         directory = path.substr(0, path.find_last_of('/'));
+        cout << "directory = " << directory << endl;
 
         // process ASSIMP's root node recursively
         processNode(scene->mRootNode, scene);
@@ -177,6 +178,8 @@ private:
         {
             aiString str;
             mat->GetTexture(type, i, &str);
+            cout << "str = " << str.C_Str() << ", type = " << type << endl;
+
             // check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
             bool skip = false;
             for(unsigned int j = 0; j < textures_loaded.size(); j++)

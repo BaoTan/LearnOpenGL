@@ -9,7 +9,8 @@ in VS_OUT {
 out vec3 fColor;
 
 void build_house(vec4 position)
-{    
+{   
+    //每次我们调用EmitVertex时，gl_Position中的向量会被添加到图元中来。当EndPrimitive被调用时，所有发射出的(Emitted)顶点都会合成为指定的输出渲染图元
     fColor = gs_in[0].color; // gs_in[0] since there's only one input vertex
     gl_Position = position + vec4(-0.2, -0.2, 0.0, 0.0); // 1:bottom-left   
     EmitVertex();   
